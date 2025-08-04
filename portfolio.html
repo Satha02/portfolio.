@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sathananthan | UI/UX Designer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --text-light: #212529;
+      --bg-dark: #121212;
+      --text-dark: #f1f1f1;
+      --primary: #4e73df;
+    }
+
+    * {
+    
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    #about {
+  background: #f7f9fc;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#skills {
+  background: #fff5f5;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#projects {
+  background: #f1f8ff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+  #resume {
+  background: #f7f9fc;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#contact {
+  background: #fff5f5;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1f1f1f, #2c3e50); /* elegant dark blend */
+  color: var(--text-dark);
+}
+
+
+body {
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* light blue gradient */
+  color: var(--text-light);
+  transition: background 0.3s, color 0.3s;
+}
+
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+h1, h2, h3 {
+  font-family: 'Outfit', sans-serif;
+}
+
+p, li, a, input, textarea {
+  font-family: 'Poppins', sans-serif;
+}
+
+    .profile-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 167, 245, 0.3);
+}
+
+/* Reuse theme toggle styles */
+.theme-toggle-wrapper {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.theme-toggle-wrapper .icon {
+  font-size: 14px;
+  z-index: 2;
+}
+
+.theme-toggle-button {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+body.dark-mode .theme-toggle-button {
+  left: 32px;
+}
+
+    .video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-top: 1rem;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    
+    }
+    
+    
+    nav {
+      width: 100%;
+      background: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav ul li a:hover {
+      color: #a0b4ff;
+    }
+
+    .theme-toggle-wrapper {
+      position: relative;
+      width: 60px;
+      height: 30px;
+      background: #fff;
+      border-radius: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+    }
+
+    .theme-toggle-wrapper .icon {
+      font-size: 14px;
+      z-index: 2;
+    }
+
+    .theme-toggle-button {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: var(--primary);
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: 0.3s;
+    }
+
+    body.dark-mode .theme-toggle-button {
+      left: 32px;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: var(--primary);
+        height: calc(100vh - 60px);
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 2rem;
+      }
+
+      nav ul.active {
+        transform: translateX(0);
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .home .left,
+    .home .right {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 75px rgba(0, 167, 245, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 0;
+    }
+
+    .skills li {
+      background: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+    }
+
+    .skills li:nth-child(1) { animation: fadeSlideUp 0.6s ease forwards 0.2s; }
+    .skills li:nth-child(2) { animation: fadeSlideUp 0.6s ease forwards 0.4s; }
+    .skills li:nth-child(3) { animation: fadeSlideUp 0.6s ease forwards 0.6s; }
+    .skills li:nth-child(4) { animation: fadeSlideUp 0.6s ease forwards 0.8s; }
+    .skills li:nth-child(5) { animation: fadeSlideUp 0.6s ease forwards 1s; }
+    .skills li:nth-child(6) { animation: fadeSlideUp 0.6s ease forwards 1.2s; }
+    .skills li:nth-child(7) { animation: fadeSlideUp 0.6s ease forwards 1.4s; }
+    .skills li:nth-child(8) { animation: fadeSlideUp 0.6s ease forwards 1.6s; }
+
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project {
+      background: #90adca;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .dark-mode .project {
+      background: #1f1f1f;
+    }
+
+    form {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3751a3;
+    }
+
+    .social {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .social a {
+      margin: 0 1rem;
+      font-size: 2rem;
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .home {
+        flex-direction: column;
+      }
+    }
+    /* Ensure text color is readable in dark mode */
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode input,
+body.dark-mode textarea {
+  color: #f1f1f1 !important;
+}
+body.dark-mode section {
+  background-color: #1e1e1e;
+}
+/* Fix text visibility in dark mode */
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode input,
+body.dark-mode textarea {
+  color: #f1f1f1 !important;
+}
+
+/* Override section backgrounds in dark mode */
+body.dark-mode #about,
+body.dark-mode #skills,
+body.dark-mode #projects,
+body.dark-mode #resume,
+body.dark-mode #contact {
+  background-color: #1e1e1e !important;
+}
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Sathananthan</div>
+  <ul id="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="burger" id="burger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+<main>
+ <section class="home" id="home">
+  <div class="left">
+    <div class="profile-area">
+      <img src="images/satha4.jpg" alt="Sathananthan" class="profile-pic" />
+      <div class="theme-toggle-wrapper" id="theme-toggle">
+        <span class="icon"></span>
+        <span class="icon"></span>
+        <div class="theme-toggle-button"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <h1>Hi, I'm <span class="typewriter">Sathananthan</span></h1><br>
+    <p>A passionate UI/UX Designer and Front-End Developer creating user-friendly interfaces.</p>
+  </div>
+</section>
+
+
+  <section id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm Sathananthan, a dedicated and passionate UI/UX Designer and Front-End Developer currently pursuing my Higher National Diploma in Information Technology. My mission is to design intuitive, user-centric interfaces that deliver seamless digital experiences.
+  </p>
+  <p>
+    I specialize in using tools like <strong>Figma</strong>, <strong>photoshop</strong>, and <strong>Canva</strong> for wireframing and prototyping, and I bring those designs to life using <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, and frameworks like <strong>React</strong>.
+  </p>
+  <p>
+    I've worked on real-world projects like a <strong>Smart vehicle service</strong> and a <strong>Face Recognition Attendance System</strong>, both of which helped me build strong problem-solving and UI decision-making skills.
+  </p>
+  <p>
+    I'm also deeply interested in responsive design, animation, and accessibility. Whether I'm designing a mobile-first layout or building a dark/light mode toggle, I love crafting products that not only look good but also work beautifully.
+  </p>
+</section>
+
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Figma</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Canva</li>
+      <li>React</li>
+      <li>MySQL</li>
+      <li>PHP</li>
+    </ul>
+  </section>
+
+ <section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project">
+  <h3>smart vehicle service</h3>
+  <p>SVRS is a modern platform that helps users quickly find nearby mechanics during breakdowns. Our goal is to reduce your stress with fast, reliable help—anywhere, anytime.</p>
+  <div class="video-container">
+    <iframe src="videos/project.mp4" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+   <br>
+  <div class="project">
+    <h3>Login page </h3>
+    <p>Designing the login page using figma</p>
+   <div class="video-container">
+    <iframe src="videos/login.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+ <br>
+
+  <div class="project">
+    <h3>Face Recognition Attendance System</h3>
+    <p>A smart attendance system using OpenCV for face recognition.</p>
+    <div class="video-container">
+    <iframe src="videos/faceorg.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+   <br>
+  <div class="project">
+    <h3>Poster Desgin For Resturant</h3>
+    <p>Using canva to create a best posters</p>
+    <div class="video-container">
+    <iframe src="videos/poster edit.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <br> 
+   <div class="project">
+    <h3>App Desgin For Resturant</h3>
+    <p>Using Figma</p>
+    <div class="video-container">
+    <iframe src="/videos/satharest.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  
+</section>
+
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <a href="/cv.pdf" download>Download Resume</a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <textarea id="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <div class="social">
+      <a href="https://github.com/Satha02" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/murukananthan-sathananthan-41298123b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:satha0534@email.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+</main>
+
+<script>
+  const burger = document.getElementById('burger');
+const navLinks = document.getElementById('nav-links');
+const themeToggle = document.getElementById('theme-toggle');
+
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+function sendToWhatsApp(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  const url = `https://wa.me/94771234567?text=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+
+  // Section fade-in on scroll
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+  sections.forEach(section => observer.observe(section));
+  
+  
+</script>
+
+</body>
+</html>
